@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .button {
+            width: 220px;
+            height: 50px;
+            border: 1px solid grey;
+            border-radius: 25px;
+            position: relative;
+            margin: 200px auto;
+            background-color: orange;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .buttonInner {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row;
+            position: absolute;
+            z-index: 10;
+        }
+
+        .buttonOverlay {
+            width: 110px;
+            height: 50px;
+            background-color: rgb(143, 56, 56);
+            border-radius: 25px;
+            position: absolute;
+            z-index: 1;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button">
+        <div class="buttonInner">
+            <div class="on">
+                <p>on</p>
+            </div>
+            <div class="off">
+                <p>off</p>
+            </div>
+        </div>
+
+        <div class="buttonOverlay">
+
+        </div>
+    </div>
+
+
+
+
+
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            var state = true;
+            var lefStop = $(".button").width() - $(".buttonOverlay").width();
+            $(".button").click(function(){
+                if(state==true){
+                    state=false;
+                    $(".buttonOverlay").animate({left:lefStop+"px"});
+                }else{
+                    state=true;
+                    $(".buttonOverlay").animate({left:0+"px"});
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

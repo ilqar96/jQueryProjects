@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .stars{
+            position: absolute;
+            top:200px;
+            left:50%;
+            transform: translateX(-50%);
+        }
+        .yellow{
+            color:rgb(240, 229, 77);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars">
+        <span class=""><i class="fas fa-star"></i></span>
+        <span ><i class="fas fa-star"></i></span>
+        <span ><i class="fas fa-star"></i></span>
+        <span ><i class="fas fa-star"></i></span>
+        <span ><i class="fas fa-star"></i></span>
+    </div>
+
+
+
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+                $("span").mouseover(function(){
+                    $(this).addClass("yellow");
+                    $(this).prevAll().addClass("yellow")
+                    $(this).nextAll().removeClass("yellow")
+                });
+                $("span").mouseout(function(){
+                    $(this).removeClass("yellow")
+                    $(this).siblings().removeClass("yellow")
+                });
+                $("span").click(function(){
+                    $("span").off("mouseout");
+                    $("span").off("mouseover");
+                    $(this).addClass("yellow");
+                    $(this).prevAll().addClass("yellow")
+                    $(this).nextAll().removeClass("yellow");
+                });
+
+
+
+        });
+    </script>
+</body>
+</html>
